@@ -40,11 +40,11 @@ function decideWinner (yourChoice, computerChoice) {
 
 function finalMassage([yourScore, computerScore]) {
     if (yourScore === 0) {
-        return {'massage': 'You lost!', 'color': 'red'};        
+        return {'message': 'You lost!', 'color': 'red'};        
     } else if (yourScore === 0.5) {
-        return {'massage': 'You Tied!', 'color': 'yellow'};
+        return {'message': 'You Tied!', 'color': 'yellow'};
     } else {
-        return {'massage': 'You won!', 'color': 'green'};
+        return {'message': 'You won!', 'color': 'green'};
     }
 }
 
@@ -64,10 +64,16 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMassage) {
   var massageDiv = document.createElement('div');
 
   humanDiv.innerHTML = "<img src='" + imagesDatabase[humanImageChoice] + " ' height=150 width=150 style= 'box-shadow: 0px 10px 50px rgba(37, 50, 233, 1);'>"
+  
+  massageDiv.innerHTML = "<h1 style='color: " + finalMassage['color'] + "; font-size: 60px; padding: 30px; '>" + finalMassage['message'] + "</h1>"
   botDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + " ' height=150 width=150 style= 'box-shadow: 0px 10px 50px rgba(243, 38, 24, 1);'>"
       
   document.getElementById('flex-box-rps-div').appendChild(humanDiv);
+
+  document.getElementById('flex-box-rps-div').appendChild(massageDiv);    
+ 
   document.getElementById('flex-box-rps-div').appendChild(botDiv);
+
 }
 
 
